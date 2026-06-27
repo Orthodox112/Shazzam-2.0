@@ -1,13 +1,3 @@
-"""
-_mock_librosa_for_testing.py
-=============================
-DEV-ONLY helper. This sandbox has no network access to `pip install
-librosa`, so this stub lets us exercise the pure NumPy/SciPy logic
-(spectrogram, peaks, hashing, database, matcher) without the real
-decoder. It is NOT part of the shipped app -- the deployed app's
-requirements.txt installs the real librosa, which is what actually
-decodes MP3/WAV/etc. Do not import this from app code.
-"""
 import sys
 import types
 import numpy as np
