@@ -1,20 +1,4 @@
-"""
-peaks.py
-========
-Extracts the "constellation map": a sparse set of (time_bin, freq_bin)
-local maxima from a spectrogram. These are the standout time-frequency
-points described in Q3A -- the ones that survive EQ, volume changes, and
-mild noise because they're defined by *relative* prominence, not absolute
-level.
 
-Algorithm
----------
-1. Slide a 2-D maximum filter over the dB spectrogram. A point survives if
-   it equals the max of its own neighborhood (i.e. it IS the loudest point
-   nearby) and it's louder than a noise floor.
-2. To avoid one loud passage hogging the whole fingerprint, we cap the
-   number of peaks kept per second of audio, keeping the loudest ones.
-"""
 from __future__ import annotations
 
 import numpy as np
