@@ -1,17 +1,3 @@
-"""
-make_samples.py
-================
-Generates a handful of short "query" clips by snipping random ~10-second
-windows out of songs already in data/songs/, and saves them into
-data/samples/. These power the "OR TRY A SAMPLE" row in the Identify tab
-(exactly like sample1..sample5 in the demo video) -- a quick way for
-graders to test identification without sourcing their own audio.
-
-Usage
------
-    python make_samples.py                  # 5 samples, default 10s each
-    python make_samples.py --n 8 --seconds 6
-"""
 import argparse
 import os
 import random
