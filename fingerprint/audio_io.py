@@ -1,14 +1,3 @@
-"""
-audio_io.py
-===========
-Loading and basic preprocessing of audio files.
-
-We rely on `librosa.load`, which internally uses `soundfile`/`audioread`
-to decode WAV/MP3/FLAC/OGG/M4A and returns a float32 mono (or stereo)
-NumPy array. librosa also handles resampling with a proper anti-aliasing
-low-pass filter before decimating, so downsampling to SAMPLE_RATE here is
-safe and consistent with the Nyquist discussion in Q2(f).
-"""
 from __future__ import annotations
 
 import io
