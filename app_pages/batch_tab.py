@@ -1,14 +1,3 @@
-"""
-batch_tab.py
-============
-"Batch" tab: upload many query clips at once, identify each against the
-currently indexed library, and write a standardized results.csv with
-exactly two columns -- filename, prediction -- per the project spec.
-`prediction` is the matched track's filename WITHOUT extension, or
-the literal string "none" when no candidate clears the confidence
-threshold. This is graded automatically, so the column names and the
-"none" sentinel must match exactly.
-"""
 import io
 import csv
 import streamlit as st
