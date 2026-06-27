@@ -1,25 +1,3 @@
-"""
-hashing.py
-==========
-Turns a constellation map (list of peaks) into a set of compact hashes,
-each combining TWO peaks: an "anchor" and a "partner" that follows it
-within a short target zone. A hash is the tuple:
-
-    (freq_bin_anchor, freq_bin_partner, time_delta_in_frames)
-
-paired with the anchor's absolute time (needed later to compute offsets).
-
-Why pairs instead of single peaks? (see Q3A's "single peaks vs hashes")
----------------------------------------------------------------------
-A single peak is just "frequency bin 137 was loud at some point" -- with
-thousands of songs, many tracks share *some* loud bin at *some* time, so
-single-peak hashes collide constantly and give noisy, indecisive votes.
-A *pair* of peaks plus their time-gap is a far more specific signature:
-two unrelated songs are unlikely to share the same (f1, f2, dt) by chance.
-This combinatorial fan-out is exactly what makes Shazam-style matching
-robust: the false-positive rate drops roughly as the square of the
-single-peak collision rate.
-"""
 from __future__ import annotations
 
 from collections import defaultdict
