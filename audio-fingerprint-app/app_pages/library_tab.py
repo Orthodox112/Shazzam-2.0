@@ -1,16 +1,3 @@
-"""
-library_tab.py
-==============
-"Library" tab: read-only view of the currently-indexed song database.
-Mirrors the demo video's grid of song cards, each showing the song title
-and how many fingerprint hashes it contributed.
-
-Indexing itself is done offline via build_database.py (run once after you
-drop the 50 songs into data/songs/) -- the spec describes the database as
-admin-managed ("index it once, and keep the resulting database"), so the
-app intentionally does NOT let end users re-index from this tab; it only
-displays what's already indexed.
-"""
 import streamlit as st
 
 
