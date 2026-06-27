@@ -1,41 +1,12 @@
-"""
-config.py
-=========
-All tunable constants for the fingerprinting pipeline live here, so the
-Streamlit app, the indexing script and the notebook in the report can all
-import the *same* numbers. Tune these if you change the song dataset.
-"""
-
-# ---------------------------------------------------------------------------
-# Audio loading
-# ---------------------------------------------------------------------------
-SAMPLE_RATE = 22_050          # Hz. Music fingerprints don't need hi-fi audio;
-                              # most energy that matters for ID is < 5 kHz,
-                              # so we downsample everything to this rate first.
-                              # (This *is* deliberate decimation -> see Q1A/Q2f
-                              # discussion on anti-aliasing: librosa low-pass
-                              # filters before downsampling, so no aliasing.)
-MONO = True                   # collapse stereo to mono (average channels)
-
-# ---------------------------------------------------------------------------
-# Spectrogram (STFT) parameters
-# ---------------------------------------------------------------------------
-N_FFT = 4096                  # samples per STFT window (~186 ms at 22050 Hz)
-HOP_LENGTH = 1024             # samples between successive frames (~46 ms)
-                              # -> 4x overlap, smooth time axis, good peaks.
+SAMPLE_RATE = 22_050
+MONO = True                  
+N_FFT = 4096                  
+HOP_LENGTH = 1024              
 WINDOW = "hann"
-
-# Frequency band we keep peaks from. Below MIN_FREQ is mostly rumble / DC,
-# above MAX_FREQ is rarely diagnostic and is the first thing noise destroys.
 MIN_FREQ_HZ = 80
 MAX_FREQ_HZ = 5_000
 
-# ---------------------------------------------------------------------------
-# Peak picking ("constellation map")
-# ---------------------------------------------------------------------------
-# We split the spectrogram into rectangular neighborhoods and keep a bin only
-# if it's the loudest point in its own neighborhood (a local max filter),
-# AND it's above a noise floor. This gives a sparse, repeatable fingerprint.
+
 PEAK_NEIGHBORHOOD_FREQ_BINS = 14   # neighborhood half-height in freq bins
 PEAK_NEIGHBORHOOD_TIME_BINS = 10   # neighborhood half-width in time bins
 MIN_PEAK_AMP_DB = -55              # ignore peaks quieter than this (dB, after
