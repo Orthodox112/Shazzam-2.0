@@ -16,7 +16,7 @@ import streamlit as st
 TEAL = "#0E7C70"          # deep teal accent -- legible on white, unlike #2DD4BF
 TEAL_DIM = "#0B5F56"
 TEAL_TINT = "#E4F2EF"     # very light teal wash for fills/highlights
-BG = "#FAF8F3"            # warm paper, not stark white
+BG = "#F0B31A"            # warm paper, not stark white
 PANEL = "#FFFFFF"
 PANEL_BORDER = "#E2DDD0"
 TEXT = "#22302C"          # deep slate, not pure black
