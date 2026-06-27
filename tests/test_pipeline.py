@@ -1,14 +1,3 @@
-"""
-tests/test_pipeline.py
-=======================
-Lightweight sanity tests for the fingerprinting pipeline, using synthetic
-tone-sequence "songs" so they run instantly with no audio files needed.
-
-Run with:
-    pytest tests/ -v
-or, without pytest installed:
-    python tests/test_pipeline.py
-"""
 import sys
 import os
 import numpy as np
