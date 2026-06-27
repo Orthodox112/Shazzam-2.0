@@ -1,17 +1,3 @@
-"""
-identify_tab.py
-================
-"Identify" tab: upload (or pick a bundled sample) a short query clip and
-run it through the full fingerprinting + matching pipeline, displaying
-every intermediate stage exactly like the demo video:
-
-    upload/try -> pipeline timing chips -> MATCH FOUND panel ->
-    candidate scores -> Step 1 (spectrogram -> constellation) ->
-    Step 2 (offset histogram / database search)
-
-Sample clips ship in data/samples/ so graders can test without finding
-their own audio (mirrors the demo video's "sample1..sample5 + Try" row).
-"""
 import os
 import glob
 import streamlit as st
