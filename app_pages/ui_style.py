@@ -1,16 +1,3 @@
-"""
-ui_style.py
-===========
-Shared CSS + small UI helper components.
-
-Light theme, desktop-first layout: a warm paper background, deep-slate
-text, and a deep teal accent (darkened from the original dark-theme teal
-so it stays legible on a light background). Headings and data/numeric
-values use a monospace face (the "lab notebook" identity from the
-original design); body copy uses a clean grotesque sans for comfortable
-reading at desktop widths. Content is capped at a max-width so wide
-desktop layout doesn't stretch text edge-to-edge on large monitors.
-"""
 import streamlit as st
 
 TEAL = "#0E7C70"          # deep teal accent -- legible on white, unlike #2DD4BF
