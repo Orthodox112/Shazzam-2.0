@@ -1,15 +1,3 @@
-"""
-spectrogram.py
-===============
-Turns a 1-D audio signal into a 2-D time-frequency map using the STFT
-(short-time Fourier transform) -- a sliding window + ordinary DFT on each
-windowed slice, exactly as described in Q3A.
-
-We use scipy.signal.stft rather than re-deriving an STFT from scratch,
-but the *parameters* (window length, hop / overlap) are the ones that
-control the time-resolution vs frequency-resolution trade-off discussed
-in Q2(c)(iii) and Q3A's "short window vs long window" experiment.
-"""
 from __future__ import annotations
 
 import numpy as np
