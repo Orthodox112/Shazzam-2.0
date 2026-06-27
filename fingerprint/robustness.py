@@ -1,14 +1,4 @@
-"""
-robustness.py
-=============
-Helpers for the Q3A robustness experiments: adding noise to a query,
-pitch-shifting it, and time-stretching it, then re-running identification
-to see where the matcher breaks down.
 
-These are used by the notebook / report generation script, and are also
-wired into an (optional) "Experiments" expander in the Streamlit app so
-graders can reproduce the plots interactively.
-"""
 from __future__ import annotations
 
 import numpy as np
