@@ -1,16 +1,4 @@
-"""
-pipeline.py
-===========
-Glue code that runs the full feature-extraction chain:
 
-    audio  ->  spectrogram  ->  constellation (peaks)  ->  hashes
-
-used identically whether we're indexing a database song or fingerprinting
-a query clip. Keeping one shared function guarantees the database and the
-query are built with *exactly* the same parameters, which is essential --
-mismatched STFT settings between indexing and querying would shift every
-peak's bin index and make matching impossible.
-"""
 from __future__ import annotations
 
 import time
