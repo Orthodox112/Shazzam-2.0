@@ -1,29 +1,4 @@
-"""
-matcher.py
-==========
-Identifies a query clip against the database using the classic
-"offset histogram" voting scheme (Q3A: "look at the time offsets at which
-its hashes match: a true match lines them all up at a single offset,
-while a wrong song gives only scattered, random matches").
 
-How it works
-------------
-For every hash in the query clip, we look up which (song_id, db_time)
-pairs share that exact hash in the database. For each match we compute
-
-    offset = db_time - query_time
-
-If the query really is a snippet of that song (possibly starting partway
-through), then for *every* correctly matched hash pair, db_time and
-query_time differ by the SAME constant offset (the position in the song
-where the clip starts). So correct matches pile up into one tall spike
-in the offset histogram, while coincidental hash collisions with the
-wrong song land at essentially random offsets and stay low and spread out.
-
-We track per-song offset histograms in a single pass with a dict of
-Counters, then take, for each song, the tallest bin as that song's score
-(the "cluster score"), and rank songs by that score.
-"""
 from __future__ import annotations
 
 import time
