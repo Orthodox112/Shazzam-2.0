@@ -1,41 +1,4 @@
-"""
-database.py
-===========
-Builds, saves, and loads the fingerprint database for the song library.
 
-On-disk format
---------------
-We persist a single JSON file (data/db/fingerprints.json) shaped like:
-
-{
-  "songs": {
-    "<song_id>": {"filename": "Hey Jude.mp3", "n_hashes": 5881, "duration_s": 30.2},
-    ...
-  },
-  "index": {
-    "<f1>_<f2>_<dt>": [[song_id, anchor_time_bin], ...],
-    ...
-  },
-  "single_index": {
-    "<f>": [[song_id, anchor_time_bin], ...],
-    ...
-  }
-}
-
-`index` is the actual inverted index: hash_key -> list of (song_id, time)
-postings. This is the data structure the matcher does O(1) dict lookups
-against for every query hash -- exactly the "DB lookup" pipeline stage
-shown in the demo video. `single_index` is the same idea but keyed by a
-single peak's frequency bin alone, used only for the Q3A "single peaks
-vs. paired hashes" comparison experiment.
-
-JSON keys must be strings, so a tuple hash_key (f1, f2, dt) is serialized
-as "f1_f2_dt" and parsed back with `_key_to_str` / `_str_to_key`.
-
-For 50 short songs this JSON index is small enough (a few MB) to load
-entirely into memory, which keeps the Streamlit app simple and fast with
-no external database server required.
-"""
 from __future__ import annotations
 
 import json
