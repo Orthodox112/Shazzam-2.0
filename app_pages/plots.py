@@ -1,11 +1,3 @@
-"""
-plots.py
-========
-Matplotlib figure builders for the three visuals the project spec requires
-in the Identify tab: the spectrogram, the constellation of peaks, and the
-offset histogram that decides the match (Q3B: "showing the intermediate
-steps"). Styled to match the app's light paper / deep-teal theme.
-"""
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
