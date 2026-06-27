@@ -1,16 +1,3 @@
-"""
-build_database.py
-==================
-Command-line script that indexes every song in data/songs/ into
-data/db/fingerprints.json. Run this once after dropping your 50 songs
-into data/songs/ -- the Streamlit app will then load the saved database
-on startup instead of re-fingerprinting everything on every run.
-
-Usage
------
-    python build_database.py
-    python build_database.py --songs-dir path/to/songs --out path/to/db.json
-"""
 import argparse
 import time
 from fingerprint.database import FingerprintDB
